@@ -53,15 +53,13 @@ fun Dialog(sharedViewModel: SharedViewModel, dismissAction: () -> Unit) {
                 .background(Color.White)
                 .padding(top = 30.dp, bottom = 30.dp, start = 10.dp, end = 10.dp)
         ) {
-            Icon(
-                painter = painterResource(id = R.drawable.baseline_close_24),
+            Icon(painter = painterResource(id = R.drawable.baseline_close_24),
                 contentDescription = "close activity",
                 modifier = Modifier
                     .clickable {
                         dismissAction.invoke()
                     }
-                    .align(Alignment.End)
-            )
+                    .align(Alignment.End))
             Spacer(modifier = Modifier.height(25.dp))
             Card(
                 shape = CardDefaults.outlinedShape,
@@ -90,6 +88,7 @@ fun Dialog(sharedViewModel: SharedViewModel, dismissAction: () -> Unit) {
                                 .padding(10.dp)
                                 .fillMaxWidth(),
                             verticalAlignment = Alignment.CenterVertically
+
                         ) {
                             var isCheck by remember {
                                 mutableStateOf(item.flag)
@@ -130,7 +129,7 @@ fun Dialog(sharedViewModel: SharedViewModel, dismissAction: () -> Unit) {
                                 .clickable {
                                     isCheck = !isCheck
                                 }
-                                .size(25.dp),
+                               .size(25.dp),
                                 contentAlignment = Alignment.Center
                             ) {
                                 if (isCheck) {
@@ -165,7 +164,6 @@ fun Dialog(sharedViewModel: SharedViewModel, dismissAction: () -> Unit) {
                                         )
 
                                     }
-
                                 }
                                 if (isCheck) {
                                     sharedViewModel.insertRoom(item)
